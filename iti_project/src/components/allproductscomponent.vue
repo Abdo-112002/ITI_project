@@ -6,7 +6,7 @@
                             <h5 class="card-title text-center"><a class="text-dark" href="#">{{product.name}}</a> </h5>
                             <h6 class="card-text my-3">{{product.price}} $</h6>
                             <div class="text-center">
-                                <button class="btn btn-success px-5" @click="addProductToCart">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
+                                <button class="btn btn-success px-5" @click="addProductToCart(product)">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
                             </div>
                         </div>
                     </div>
@@ -24,16 +24,14 @@ export default {
       const res= await fetch("http://localhost:3000/allproducts");
       this.allproducts=await res.json();
     },
+    props : ['addProductToCart'],
     data(){
         return{
         allproducts : [],
         }
     },components:{
     allproductscomponent,
-},
-    methods: {
-     
-    }
+    },
 }
 
 
